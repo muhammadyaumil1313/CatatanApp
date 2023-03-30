@@ -1,5 +1,6 @@
 package org.d3if00001.catatanapp
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import org.d3if00001.catatanapp.databinding.ActivityMainBinding
+import org.d3if00001.catatanapp.notes.ui.insert.NoteAddUpdateActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,7 +34,10 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         binding.fab.setOnClickListener { view ->
-
+            if (view.id == R.id.fab) {
+                val intent = Intent(this@MainActivity, NoteAddUpdateActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 
