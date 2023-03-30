@@ -3,26 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
-
+    app:startDestination="@id/listNotesFragment">
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="org.d3if00001.catatanapp.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
+        android:id="@+id/listNotesFragment"
+        android:name="org.d3if00001.catatanapp.notes.ListNotes"
+        android:label="fragment_list_notes"
+        tools:layout="@layout/fragment_list_notes" >
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_listNotesFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="org.d3if00001.catatanapp.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        android:id="@+id/detailFragment"
+        android:name="org.d3if00001.catatanapp.detail.DetailNotes"
+        android:label="detail_fragment"
+        tools:layout="@layout/detail_fragment" >
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_detailFragment_to_listNotesFragment"
+            app:destination="@id/listNotesFragment" />
     </fragment>
 </navigation>
