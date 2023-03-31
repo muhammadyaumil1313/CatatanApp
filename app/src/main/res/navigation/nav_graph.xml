@@ -8,18 +8,5 @@
         android:id="@+id/listNotesFragment"
         android:name="org.d3if00001.catatanapp.notes.ui.main.ListNotes"
         android:label="fragment_list_notes"
-        tools:layout="@layout/fragment_list_notes" >
-        <action
-            android:id="@+id/action_listNotesFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/detailFragment"
-        android:name="org.d3if00001.catatanapp.detail.DetailNotes"
-        android:label="detail_fragment"
-        tools:layout="@layout/detail_fragment" >
-        <action
-            android:id="@+id/action_detailFragment_to_listNotesFragment"
-            app:destination="@id/listNotesFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_list_notes" />
 </navigation>

@@ -18,7 +18,11 @@ class NotesAdapter: RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
             with(binding) {
                 noteTitle.text = note.title
                 noteDate.text = note.date
-                noteDescription.text = noteTitle.text.toString().substring(0,10)
+                noteDescription.text = noteTitle.text.toString()
+                noteCategory.text = note.category
+                if(noteCategory.text.isEmpty()){
+                    noteCategory.text = "Tidak ada Category"
+                }
                 cvItemNotes.setOnClickListener {
                     val intent = Intent(it.context, NoteAddUpdateActivity::class.java)
                     intent.putExtra(NoteAddUpdateActivity.EXTRA_NOTE, note)
@@ -27,7 +31,7 @@ class NotesAdapter: RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
             }
         }
     }
-    fun setListNotes(listNotes: List<Note>) {
+    fun setListNotes(listNotes: ArrayList<Note>) {
         val diffCallback = NoteDiffCallback(this.listNotes, listNotes)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
         this.listNotes.clear()

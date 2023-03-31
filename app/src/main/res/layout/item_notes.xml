@@ -39,6 +39,14 @@
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
             tools:text="Deskripsi singkat catatan" />
 
+        <com.google.android.material.chip.Chip
+            android:id="@+id/note_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            tools:text="Category" />
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

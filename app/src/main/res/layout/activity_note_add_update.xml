@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
+    android:padding="30dp"
     android:orientation="vertical"
     tools:context=".notes.ui.insert.NoteAddUpdateActivity">
 
@@ -16,6 +16,7 @@
             android:id="@+id/ti_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:hint="@string/judul_catatan" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -27,6 +28,7 @@
             android:id="@+id/ti_isi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:hint="@string/isi_catatan" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -38,6 +40,7 @@
             android:id="@+id/ti_kategori"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:hint="@string/kategori" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -45,6 +48,8 @@
         android:id="@+id/submit_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
         android:text="@string/simpan"
         android:textSize="12sp" />
 
