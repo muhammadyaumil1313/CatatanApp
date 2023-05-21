@@ -1,15 +1,13 @@
-package org.d3if00001.catatanapp.notes
+package org.d3if00001.catatanapp.presentations.ui
 
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import org.d3if00001.catatanapp.databinding.ItemNotesBinding
-import org.d3if00001.catatanapp.notes.entity.Note
-import org.d3if00001.catatanapp.notes.helper.NoteDiffCallback
-import org.d3if00001.catatanapp.notes.ui.insert.NoteAddUpdateActivity
+import org.d3if00001.catatanapp.domain.models.Note
+import org.d3if00001.catatanapp.presentations.ui.helper.NoteDiffCallback
 
 class NotesAdapter: RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
     private val listNotes = ArrayList<Note>()
@@ -39,7 +37,7 @@ class NotesAdapter: RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
         diffResult.dispatchUpdatesTo(this)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder{
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         return NoteViewHolder(
             ItemNotesBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         )

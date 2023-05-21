@@ -1,9 +1,9 @@
-package org.d3if00001.catatanapp.notes.helper
+package org.d3if00001.catatanapp.presentations.ui.helper
 
 import androidx.recyclerview.widget.DiffUtil
-import org.d3if00001.catatanapp.notes.entity.Note
+import org.d3if00001.catatanapp.domain.models.Note
 
-class NoteDiffCallback(private val mOldNoteList:List<Note>,private val newNoteList:List<Note>)
+class NoteDiffCallback(private val mOldNoteList:List<Note>, private val newNoteList:List<Note>)
     :DiffUtil.Callback(){
     override fun getOldListSize(): Int = mOldNoteList.size
 

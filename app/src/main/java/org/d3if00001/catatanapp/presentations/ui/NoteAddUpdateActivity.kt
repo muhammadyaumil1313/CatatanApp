@@ -1,4 +1,4 @@
-package org.d3if00001.catatanapp.notes.ui.insert
+package org.d3if00001.catatanapp.presentations.ui
 
 import android.os.Build
 import android.os.Build.VERSION
@@ -8,14 +8,13 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.WindowCompat
 import androidx.lifecycle.ViewModelProvider
 import org.d3if00001.catatanapp.R
 import org.d3if00001.catatanapp.databinding.ActivityNoteAddUpdateBinding
-import org.d3if00001.catatanapp.notes.NoteAddUpdateViewModel
-import org.d3if00001.catatanapp.notes.entity.Note
-import org.d3if00001.catatanapp.notes.helper.DateHelper
-import org.d3if00001.catatanapp.notes.viewModelFactory
+import org.d3if00001.catatanapp.presentations.ui.viewModels.NoteAddUpdateViewModel
+import org.d3if00001.catatanapp.domain.models.Note
+import org.d3if00001.catatanapp.presentations.ui.helper.DateHelper
+import org.d3if00001.catatanapp.presentations.ui.viewModels.viewModelFactory
 
 class NoteAddUpdateActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNoteAddUpdateBinding
@@ -35,7 +34,7 @@ class NoteAddUpdateActivity : AppCompatActivity() {
         noteAddUpdateViewModel = obtainViewModel(this@NoteAddUpdateActivity)
 
         if (VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.getParcelableExtra(EXTRA_NOTE,Note::class.java)
+            intent.getParcelableExtra(EXTRA_NOTE, Note::class.java)
         }else{
             note = intent.getParcelableExtra(EXTRA_NOTE)
         }

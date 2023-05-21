@@ -6,7 +6,7 @@
     app:startDestination="@id/listNotesFragment">
     <fragment
         android:id="@+id/listNotesFragment"
-        android:name="org.d3if00001.catatanapp.notes.ui.main.ListNotes"
+        android:name="org.d3if00001.catatanapp.presentations.ui.ListNotes"
         android:label="fragment_list_notes"
         tools:layout="@layout/fragment_list_notes" />
 </navigation>

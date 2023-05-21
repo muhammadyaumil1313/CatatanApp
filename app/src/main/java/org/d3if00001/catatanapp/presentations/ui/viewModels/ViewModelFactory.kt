@@ -1,4 +1,4 @@
-package org.d3if00001.catatanapp.notes
+package org.d3if00001.catatanapp.presentations.ui.viewModels
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
@@ -10,7 +10,7 @@ class viewModelFactory private constructor(private val mApplication: Application
             @Volatile
             private var INSTANCE: viewModelFactory?=null
             @JvmStatic
-            fun getInstance(application:Application): viewModelFactory{
+            fun getInstance(application:Application): viewModelFactory {
                 if (INSTANCE == null) {
                     synchronized(viewModelFactory::class.java) {
                         INSTANCE = viewModelFactory(application)

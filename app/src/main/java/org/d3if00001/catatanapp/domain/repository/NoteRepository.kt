@@ -1,10 +1,10 @@
-package org.d3if00001.catatanapp.notes.repository
+package org.d3if00001.catatanapp.domain.repository
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import org.d3if00001.catatanapp.notes.entity.Note
-import org.d3if00001.catatanapp.notes.database.NoteDao
-import org.d3if00001.catatanapp.notes.database.NoteRoomDatabase
+import org.d3if00001.catatanapp.domain.models.Note
+import org.d3if00001.catatanapp.data.local.NoteDao
+import org.d3if00001.catatanapp.data.local.NoteRoomDatabase
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 

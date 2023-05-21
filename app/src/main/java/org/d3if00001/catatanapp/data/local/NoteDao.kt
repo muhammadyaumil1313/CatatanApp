@@ -1,8 +1,8 @@
-package org.d3if00001.catatanapp.notes.database
+package org.d3if00001.catatanapp.data.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import org.d3if00001.catatanapp.notes.entity.Note
+import org.d3if00001.catatanapp.domain.models.Note
 
 @Dao
 interface NoteDao {

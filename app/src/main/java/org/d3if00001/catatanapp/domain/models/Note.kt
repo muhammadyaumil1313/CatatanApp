@@ -1,4 +1,4 @@
-package org.d3if00001.catatanapp.notes.entity
+package org.d3if00001.catatanapp.domain.models
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo

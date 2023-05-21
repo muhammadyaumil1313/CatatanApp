@@ -1,10 +1,10 @@
-package org.d3if00001.catatanapp.notes.database
+package org.d3if00001.catatanapp.data.local
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import org.d3if00001.catatanapp.notes.entity.Note
+import org.d3if00001.catatanapp.domain.models.Note
 
 @Database(entities = [Note::class], version = 1)
 abstract class NoteRoomDatabase : RoomDatabase(){
@@ -13,7 +13,7 @@ abstract class NoteRoomDatabase : RoomDatabase(){
         @Volatile
         private var INSTANCE : NoteRoomDatabase? = null
         @JvmStatic
-        fun getDatabase(context: Context): NoteRoomDatabase{
+        fun getDatabase(context: Context): NoteRoomDatabase {
             if(INSTANCE == null){
                 synchronized(NoteRoomDatabase::class.java){
                     INSTANCE = Room.databaseBuilder(context.applicationContext,
