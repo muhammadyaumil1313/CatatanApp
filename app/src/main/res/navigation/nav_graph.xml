@@ -8,5 +8,63 @@
         android:id="@+id/listNotesFragment"
         android:name="org.d3if00001.catatanapp.presentations.ui.ListNotes"
         android:label="fragment_list_notes"
-        tools:layout="@layout/fragment_list_notes" />
+        tools:layout="@layout/fragment_list_notes" >
+        <action
+            android:id="@+id/action_listNotesFragment_to_noteAddFragment"
+            app:destination="@id/noteAddFragment"
+            app:popUpTo="@id/noteAddFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_listNotesFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:popUpTo="@id/noteAddFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteAddFragment"
+        android:name="org.d3if00001.catatanapp.presentations.ui.NoteAddFragment"
+        android:label="fragment_add"
+        tools:layout="@layout/fragment_add" >
+        <action
+            android:id="@+id/action_noteAddFragment_to_listNotesFragment"
+            app:destination="@id/listNotesFragment"
+            app:popUpTo="@id/listNotesFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="org.d3if00001.catatanapp.presentations.ui.DetailFragment"
+        tools:layout="@layout/fragment_detail"
+        android:label="DetailFragment" >
+        <action
+            android:id="@+id/action_detailFragment_to_listNotesFragment"
+            app:destination="@id/listNotesFragment"
+            app:popUpTo="@id/listNotesFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue="title" />
+        <argument
+            android:name="body"
+            app:argType="string"
+            android:defaultValue="body" />
+        <argument
+            android:name="category"
+            app:argType="string"
+            android:defaultValue="category" />
+        <argument
+            android:name="date"
+            app:argType="string"
+            android:defaultValue="date" />
+        <action
+            android:id="@+id/action_detailFragment_to_noteAddFragment"
+            app:destination="@id/noteAddFragment"
+            app:popUpTo="@id/detailFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>

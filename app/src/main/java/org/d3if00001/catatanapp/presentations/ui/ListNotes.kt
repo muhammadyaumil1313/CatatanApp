@@ -1,5 +1,6 @@
 package org.d3if00001.catatanapp.presentations.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import org.d3if00001.catatanapp.R
 import org.d3if00001.catatanapp.databinding.FragmentListNotesBinding
 import org.d3if00001.catatanapp.presentations.ui.viewModels.MainViewModel
 import org.d3if00001.catatanapp.domain.models.Note
@@ -42,6 +45,7 @@ class ListNotes : Fragment() {
                 rvNotes.adapter = adapter
             }
         }
+
     }
 
     private fun obtainViewModel(activity: AppCompatActivity): MainViewModel {

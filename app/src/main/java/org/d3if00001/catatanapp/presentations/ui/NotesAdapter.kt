@@ -3,8 +3,10 @@ package org.d3if00001.catatanapp.presentations.ui
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import org.d3if00001.catatanapp.R
 import org.d3if00001.catatanapp.databinding.ItemNotesBinding
 import org.d3if00001.catatanapp.domain.models.Note
 import org.d3if00001.catatanapp.presentations.ui.helper.NoteDiffCallback
@@ -21,11 +23,14 @@ class NotesAdapter: RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
                 if(noteCategory.text.isEmpty()){
                     noteCategory.text = "Tidak ada Category"
                 }
-                cvItemNotes.setOnClickListener {
-                    val intent = Intent(it.context, NoteAddUpdateActivity::class.java)
-                    intent.putExtra(NoteAddUpdateActivity.EXTRA_NOTE, note)
-                    it.context.startActivity(intent)
-                }
+               cvItemNotes.setOnClickListener {view->
+                   val toDetailNote = ListNotesDirections.actionListNotesFragmentToDetailFragment()
+                   toDetailNote.title = note.title.toString()
+                   toDetailNote.body = note.body.toString()
+                   toDetailNote.category = note.category.toString()
+                   toDetailNote.date = note.date.toString()
+                   view.findNavController().navigate(toDetailNote)
+               }
             }
         }
     }

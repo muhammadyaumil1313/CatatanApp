@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="30dp"
     android:orientation="vertical"
-    tools:context=".presentations.ui.NoteAddUpdateActivity">
+    tools:context=".presentations.ui.NoteAddFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -51,6 +51,15 @@
         android:layout_marginTop="20dp"
         android:padding="10dp"
         android:text="@string/simpan"
+        android:textSize="12sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/backButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:text="Kembali"
         android:textSize="12sp" />
 
 </LinearLayout>

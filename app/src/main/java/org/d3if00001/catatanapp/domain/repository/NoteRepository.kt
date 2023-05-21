@@ -20,6 +20,4 @@ class NoteRepository(application: Application) {
     fun getAllNotes() : LiveData<List<Note>> = notesDao.getAllNotes()
     fun insert(note: Note) = executorService.execute { notesDao.insert(note) }
     fun delete(note: Note) = executorService.execute { notesDao.delete(note) }
-    fun update(note: Note) = executorService.execute { notesDao.update(note) }
-
 }
