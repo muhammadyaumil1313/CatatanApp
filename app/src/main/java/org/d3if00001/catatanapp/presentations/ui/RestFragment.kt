@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import org.d3if00001.catatanapp.R
 import org.d3if00001.catatanapp.data.remote.api.ApiResponse
 import org.d3if00001.catatanapp.data.remote.models.Holiday
@@ -44,6 +46,10 @@ class RestFragment : Fragment() {
         holidayViewModel = ViewModelProvider(this, holidayViewModelFactory).get(HolidayViewModel::class.java)
         holidayViewModel.getAllHolidayDays()
         initObserver()
+        Glide.with(requireContext())
+            .load("https://images.unsplash.com/photo-1546548729-772119f61058?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=812&q=80")
+            .apply(RequestOptions().override(400))
+            .into(binding.banner)
     }
     private fun initObserver(){
         holidayViewModel.holidayResponse.observe(viewLifecycleOwner){
