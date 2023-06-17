@@ -28,11 +28,6 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 tools:text="Judul Catatan" />
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/outline_notification"
-                android:contentDescription="Lonceng" />
         </LinearLayout>
 
         <com.google.android.material.textview.MaterialTextView
