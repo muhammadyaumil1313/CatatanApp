@@ -11,5 +11,5 @@ data class HolidayResponse(
     @SerializedName("status")
     val status: Int, // 200
     @SerializedName("warning")
-    val warning: String // These results do not include state and province holidays. For more information, please visit https://holidayapi.com/docs
+    val warning: String
 )

@@ -3,6 +3,7 @@ package org.d3if00001.catatanapp.presentations.ui.viewModels
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import org.d3if00001.catatanapp.domain.repository.HolidayRepository
 
 class viewModelFactory private constructor(private val mApplication: Application)
     : ViewModelProvider.NewInstanceFactory(){
@@ -27,5 +28,14 @@ class viewModelFactory private constructor(private val mApplication: Application
             return NoteAddUpdateViewModel(mApplication) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
+    }
+}
+class HolidayViewModelFactory(private val holidayRepository: HolidayRepository) : ViewModelProvider.Factory {
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(HolidayViewModel::class.java)) {
+            return HolidayViewModel(holidayRepository) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
