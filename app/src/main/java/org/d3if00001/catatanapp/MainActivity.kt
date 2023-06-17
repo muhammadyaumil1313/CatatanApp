@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             val navController = navHostFragment?.findNavController()
             val currentDestinationId = navController?.currentDestination?.id
             if(currentDestinationId == R.id.listNotesFragment){
-//                navController.navigate(R.id.action_l)
+                navController.navigate(R.id.action_listNotesFragment_to_restFragment)
             }
         }
 
