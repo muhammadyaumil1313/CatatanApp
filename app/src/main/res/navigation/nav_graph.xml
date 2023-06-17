@@ -19,6 +19,9 @@
             app:destination="@id/detailFragment"
             app:popUpTo="@id/noteAddFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_listNotesFragment_to_restFragment"
+            app:destination="@id/restFragment" />
     </fragment>
     <fragment
         android:id="@+id/noteAddFragment"
@@ -66,5 +69,14 @@
             android:name="id"
             app:argType="integer"
             android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/restFragment"
+        android:name="org.d3if00001.catatanapp.presentations.ui.RestFragment"
+        android:label="fragment_rest_screen"
+        tools:layout="@layout/fragment_rest_screen" >
+        <action
+            android:id="@+id/action_restFragment_to_listNotesFragment"
+            app:destination="@id/listNotesFragment" />
     </fragment>
 </navigation>

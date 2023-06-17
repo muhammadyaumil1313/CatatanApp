@@ -3,6 +3,7 @@ package org.d3if00001.catatanapp
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import org.d3if00001.catatanapp.databinding.ActivityMainBinding
@@ -28,6 +29,17 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.dayRest.setOnClickListener {view->
+            val navHostFragment = supportFragmentManager
+                .findFragmentById(R.id.nav_host_fragment_content_main)
+
+            val navController = navHostFragment?.findNavController()
+            val currentDestinationId = navController?.currentDestination?.id
+            if(currentDestinationId == R.id.listNotesFragment){
+//                navController.navigate(R.id.action_l)
+            }
+        }
 
         binding.fab.setOnClickListener { view ->
             if (view.id == R.id.fab) {
