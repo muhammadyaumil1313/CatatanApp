@@ -9,6 +9,7 @@ import org.d3if00001.catatanapp.data.remote.api.ApiResponse
 import org.d3if00001.catatanapp.data.remote.models.HolidayResponse
 import org.d3if00001.catatanapp.domain.repository.HolidayRepository
 import java.lang.Exception
+import java.net.UnknownHostException
 
 class HolidayViewModel(private val holidayRepository: HolidayRepository):ViewModel() {
 
@@ -26,7 +27,12 @@ class HolidayViewModel(private val holidayRepository: HolidayRepository):ViewMod
                     _holidayResponse.postValue(ApiResponse.Success(client))
                 }
             }catch (e:Exception){
-                _holidayResponse.postValue(ApiResponse.Error(e.message.toString()))
+                val errorMessage = if (e is UnknownHostException) {
+                    "Koneksi terganggu. Periksa kembali koneksi internet Anda."
+                } else {
+                    e.message.toString()
+                }
+                _holidayResponse.postValue(ApiResponse.Error(errorMessage))
             }
         }
     }

@@ -9,10 +9,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import org.d3if00001.catatanapp.R
 import org.d3if00001.catatanapp.data.remote.api.ApiResponse
 import org.d3if00001.catatanapp.data.remote.models.Holiday
 import org.d3if00001.catatanapp.databinding.FragmentRestScreenBinding
+import org.d3if00001.catatanapp.domain.models.Note
 import org.d3if00001.catatanapp.domain.repository.HolidayRepository
 import org.d3if00001.catatanapp.presentations.ui.viewModels.HolidayViewModel
 import org.d3if00001.catatanapp.presentations.ui.viewModels.HolidayViewModelFactory
@@ -23,6 +25,7 @@ class RestFragment : Fragment() {
     private lateinit var binding:FragmentRestScreenBinding
     private val listDataHoliday:ArrayList<Holiday> = ArrayList()
     private lateinit var  holidayViewModel: HolidayViewModel
+    private lateinit var adapter: HolidayAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,11 +39,11 @@ class RestFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val holidayRepository = HolidayRepository()
         val holidayViewModelFactory = HolidayViewModelFactory(holidayRepository)
-        holidayViewModel = ViewModelProvider(this, holidayViewModelFactory).get(HolidayViewModel::class.java)
 
+        adapter = HolidayAdapter()
+        holidayViewModel = ViewModelProvider(this, holidayViewModelFactory).get(HolidayViewModel::class.java)
         holidayViewModel.getAllHolidayDays()
         initObserver()
-        Log.d("list holiday","${listDataHoliday.size}")
     }
     private fun initObserver(){
         holidayViewModel.holidayResponse.observe(viewLifecycleOwner){
@@ -49,7 +52,13 @@ class RestFragment : Fragment() {
                     binding.pgRest.visibility = View.VISIBLE
                 }
                 is ApiResponse.Success->{
-                    it.data.holidays.map { fragmentData->listDataHoliday.add(fragmentData)  }
+                    it.data.holidays.map { fragmentData->
+                        listDataHoliday.add(fragmentData)
+                        adapter.setListHoliday(listDataHoliday)
+                        binding.rvHoliday.layoutManager = LinearLayoutManager(activity)
+                        binding.rvHoliday.setHasFixedSize(true)
+                        binding.rvHoliday.adapter = adapter
+                    }
                     binding.pgRest.visibility = View.GONE
                 }
                 is ApiResponse.Error->{
